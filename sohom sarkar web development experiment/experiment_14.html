@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h2 align="center">Form Validation</h2>
+<form onsubmit="return handleSubmit()">
+    <label>Username</label>
+    <input type="text" id="username">
+    <span class="error" id="userError">Minimum 3 characters required</span>
+    <label>Email</label>
+    <input type="text" id="email">
+    <span class="error" id="emailError">Enter a valid email</span>
+    <label>Password</label>
+    <input type="password" id="password">
+    <span class="error" id="passError">Minimum 6 characters</span>
+    <label>Confirm Password</label>
+    <input type="password" id="confirmPassword">
+    <span class="error" id="confirmError">Passwords do not match</span>
+    <button type="submit">Submit</button>
+</form>
+<script>
+    function showError(id, show) {
+        document.getElementById(id).style.display = show ? "block" : "none";
+    }
+    function validateUsername() {
+        let username = document.getElementById("username").value;
+        if (username.length < 3) {
+            showError("userError", true);
+            return false;
+        }
+        showError("userError", false);
+        return true;
+    }
+    function validateEmail() {
+        let email = document.getElementById("email").value;
+        let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!pattern.test(email)) {
+            showError("emailError", true);
+            return false;
+        }
+        showError("emailError", false);
+        return true;
+    }
+    function validatePassword() {
+        let password = document.getElementById("password").value;
+        if (password.length < 6) {
+            showError("passError", true);
+            return false;
+        }
+        showError("passError", false);
+        return true;
+    }
+    function validateConfirmPassword() {
+        let password = document.getElementById("password").value;
+        let confirm = document.getElementById("confirmPassword").value;
+        if (password !== confirm || confirm === "") {
+            showError("confirmError", true);
+            return false;
+        }
+        showError("confirmError", false);
+        return true;
+    }
+    function handleSubmit() {
+        let valid =
+            validateUsername() &&
+            validateEmail() &&
+            validatePassword() &&
+            validateConfirmPassword();
+
+        if (valid) {
+            alert("Form submitted successfully!");
+        }
+        return valid;
+    }
+</script>
+</body>
+</html>

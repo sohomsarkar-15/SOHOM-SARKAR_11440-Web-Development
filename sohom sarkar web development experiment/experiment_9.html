@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Web Page</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid black;
+        }
+        h2 {
+            color: darkblue;
+        }
+        @media (min-width: 600px) {
+            body {
+                background-color: lightblue;
+            }
+
+            .container {
+                width: 80%;
+            }
+        }
+        @media (min-width: 992px) {
+            body {
+                background-color: lightgreen;
+            }
+            .container {
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Responsive Web Page</h2>
+        <p>
+            This page changes layout and background color based on screen size.
+        </p>
+        <p>
+            Resize the browser to see mobile, tablet, and laptop views.
+        </p>
+    </div>
+</body>
+</html>

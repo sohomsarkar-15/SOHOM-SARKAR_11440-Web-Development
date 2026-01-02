@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Conditionals & Loops</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+            padding: 30px;
+        }
+        .box {
+            background-color: white;
+            padding: 20px;
+            width: 400px;
+            border-radius: 8px;
+            border: 2px solid black;
+        }
+        input, button {
+            padding: 8px;
+            margin: 8px 0;
+            width: 100%;
+        }
+        button {
+            background-color: navy;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: green;
+        }
+        #output {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>JavaScript Conditionals & Loops</h2>
+        <label>Enter a number:</label>
+        <input type="number" id="number">
+        <button onclick="runDemo()">Run Program</button>
+        <div id="output"></div>
+    </div>
+    <script>
+        function runDemo() {
+            let num = parseInt(document.getElementById("number").value);
+            let text = "";
+            if (num > 20) {
+                text += "Number is greater than 20<br>";
+            } else if (num === 20) {
+                text += "Number is exactly 20<br>";
+            } else {
+                text += "Number is less than 20<br>";
+            }
+            text += "<br>For Loop Output:<br>";
+            for (let i = 1; i <= 5; i++) {
+                text += "For loop count: " + i + "<br>";
+            }
+            text += "<br>While Loop Output:<br>";
+            let count = 1;
+            while (count <= 3) {
+                text += "While loop count: " + count + "<br>";
+                count++;
+            }
+            text += "<br>Do-While Loop Output:<br>";
+            let x = 1;
+            do {
+                text += "Do-While loop count: " + x + "<br>";
+                x++;
+            } while (x <= 3);
+            document.getElementById("output").innerHTML = text;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Book Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+        }
+        .shop {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ccc;
+            width: 250px;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        button {
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .checkout {
+            margin: 20px;
+            padding: 10px 25px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Online Book Shop</h1>
+    <div class="shop">
+        <div class="product">
+            <h3>JavaScript Basics</h3>
+            <p>Price: ₹300</p>
+            <button onclick="addToCart(300)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <h3>HTML & CSS Guide</h3>
+            <p>Price: ₹200</p>
+            <button onclick="addToCart(200)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <h3>Web Development Handbook</h3>
+            <p>Price: ₹400</p>
+            <button onclick="addToCart(400)">Add to Cart</button>
+        </div>
+    </div>
+    <h2>Total Amount: ₹<span id="total">0</span></h2>
+    <button class="checkout" onclick="checkout()">Checkout</button>
+    <script>
+        let total = 0;
+        function addToCart(price) {
+            total = total + price;
+            document.getElementById("total").innerText = total;
+        }
+        function checkout() {
+            if (total > 0) {
+                alert("Thank you for shopping!\nTotal Amount: ₹" + total);
+                total = 0;
+                document.getElementById("total").innerText = total;
+            } else {
+                alert("Your cart is empty!");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Canvas Drawing</title>
+</head>
+<body>
+<canvas id="myCanvas" width="200" height="150" style="border:1px solid black"></canvas>
+<script>
+let canvas = document.getElementById("myCanvas");
+let ctx = canvas.getContext("2d");
+ctx.fillStyle = "red";
+ctx.fillRect(20, 20, 60, 40);
+ctx.beginPath();
+ctx.arc(130, 50, 20, 0, Math.PI * 2);
+ctx.fillStyle = "blue";
+ctx.fill();
+</script>
+</body>
+</html>

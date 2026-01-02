@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Selectors</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: bisque;
+        }
+        h1, h2, h3 {
+            text-align: center;
+            color: darkblue;
+        }
+        .red-text {
+            color: red;
+            font-size: 18px;
+        }
+        #big-text {
+            font-size: 22px;
+            color: purple;
+        }
+        div p {
+            color: green;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Selectors</h1>
+    <h2>Group Selector Example</h2>
+    <h3>Styled using h1, h2, h3 selector</h3>
+    <p class="red-text">
+        This paragraph is styled using CLASS selector.
+    </p>
+    <p id="big-text">
+        This paragraph is styled using ID selector.
+    </p>
+    <div>
+        <p>
+            This paragraph is styled using DESCENDANT selector.
+        </p>
+    </div>
+</body>
+</html>

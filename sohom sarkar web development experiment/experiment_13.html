@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Scope Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        #output {
+            margin-top: 15px;
+            padding: 10px;
+            background: #f0f0f0;
+            white-space: pre-line;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<h2>JavaScript var, let, const Scope Demo</h2>
+<button onclick="runDemo()">Run Demo</button>
+<div id="output"></div>
+<script>
+    function greet(name) {
+        return "Hello, " + name;
+    }
+    const add = function (a, b) {
+        return a + b;
+    };
+    const multiply = (a, b) => a * b;
+    function scopeDemo() {
+        let message = "";
+        if (true) {
+            var x = 10;       
+            let y = 20;       
+            const z = 30;     
+            message += "Inside block:\n";
+            message += "var x = " + x + "\n";
+            message += "let y = " + y + "\n";
+            message += "const z = " + z + "\n\n";
+        }
+        message += "Outside block:\n";
+        message += "var x = " + x + "\n";
+        try {
+            message += "let y = " + y + "\n";
+        } catch (e) {
+            message += "let y is NOT accessible\n";
+        }
+        try {
+            message += "const z = " + z + "\n";
+        } catch (e) {
+            message += "const z is NOT accessible\n";
+        }
+        return message;
+    }
+    function runDemo() {
+        let output = "";
+        output += greet("Alice") + "\n";
+        output += "Addition: " + add(5, 3) + "\n";
+        output += "Multiplication: " + multiply(4, 2) + "\n\n";
+        output += scopeDemo();
+
+        document.getElementById("output").innerText = output;
+    }
+</script>
+</body>
+</html>
